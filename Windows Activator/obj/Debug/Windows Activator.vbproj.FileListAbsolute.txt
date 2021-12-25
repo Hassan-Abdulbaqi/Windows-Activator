@@ -1,0 +1,14 @@
+c:\users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\bin\Debug\Windows Activator.exe.config
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\bin\Debug\Windows Activator.exe
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\bin\Debug\Windows Activator.pdb
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\bin\Debug\Windows Activator.xml
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\obj\Debug\Windows_Activator.Form1.resources
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\obj\Debug\Windows_Activator.Resources.resources
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\obj\Debug\Windows Activator.vbproj.GenerateResource.Cache
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\obj\Debug\Windows Activator.exe
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\obj\Debug\Windows Activator.xml
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\obj\Debug\Windows Activator.pdb
+C:\Users\hamoo\OneDrive\Documents\Visual Studio 2012\Projects\Windows Activator\Windows Activator\obj\Debug\Windows Activator.vbprojResolveAssemblyReference.cache
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\bin\Debug\XylonV2.dll
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\bin\Debug\dnlib.dll
+C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\bin\Debug\Microsoft.Win32.TaskScheduler.dll
