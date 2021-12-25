@@ -12,3 +12,16 @@ C:\Users\hamoo\OneDrive\Documents\Visual Studio 2012\Projects\Windows Activator\
 C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\bin\Debug\XylonV2.dll
 C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\bin\Debug\dnlib.dll
 C:\Users\hamoo\onedrive\documents\visual studio 2012\Projects\Windows Activator\Windows Activator\bin\Debug\Microsoft.Win32.TaskScheduler.dll
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\bin\Debug\Windows Activator.exe.config
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\bin\Debug\Windows Activator.exe
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\bin\Debug\Windows Activator.pdb
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\bin\Debug\Windows Activator.xml
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\obj\Debug\Windows Activator.vbproj.AssemblyReference.cache
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\obj\Debug\Windows_Activator.Form1.resources
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\obj\Debug\Windows_Activator.Resources.resources
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\obj\Debug\Windows Activator.vbproj.GenerateResource.cache
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\obj\Debug\Windows Activator.vbproj.CoreCompileInputs.cache
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\obj\Debug\Windows Activator.vbproj.CopyComplete
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\obj\Debug\Windows Activator.exe
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\obj\Debug\Windows Activator.xml
+C:\Users\Super\Source\Repos\Windows-Activator\Windows Activator\obj\Debug\Windows Activator.pdb
