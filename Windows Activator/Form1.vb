@@ -6,7 +6,7 @@ Imports XylonV2.Engine.Reg
 Public Class Form1
 
 
-  Public Shared windows_Keys As String = <a><![CDATA[
+    Public Shared windows_Keys As String = <a><![CDATA[
 ##################$
 #OS|Type|Brand|Key$
 ##################$
@@ -332,318 +332,318 @@ Server7|ServerHomePremium|LaCie|2M74M-6DJHT-Y49MG-22FGH-B6XFP$
 
 
 
-  Dim productName As String = GetCurrenVersionInfo("ProductName")
-  Dim Edition As String = GetCurrenVersionInfo("EditionID")
-  Dim OsVErsionBAD As Integer = Integer.Parse(Regex.Replace(productName, "[^\d]", ""))
-  Dim Manufacturer As String = String.Empty
-  Dim PC_Model As String = String.Empty
+    Dim productName As String = GetCurrenVersionInfo("ProductName")
+    Dim Edition As String = GetCurrenVersionInfo("EditionID")
+    Dim OsVersionBAD As Integer = Integer.Parse(Regex.Replace(productName, "[^\d]", ""))
+    Dim Manufacturer As String = String.Empty
+    Dim PC_Model As String = String.Empty
 
 
-  Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-    ListKeys()
-  End Sub
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        ListKeys()
+    End Sub
 
-  Private Sub ListKeys()
-    ListBox1.Items.Clear()
+    Private Sub ListKeys()
+        ListBox1.Items.Clear()
 
-    Dim WindowsKeys As List(Of KeyType) = Nothing
+        Dim WindowsKeys As List(Of KeyType) = Nothing
 
-    If CheckBox1.Checked = True Then
-      WindowsKeys = GETKey(OsVErsionBAD, Edition, Manufacturer)
-    Else
-      WindowsKeys = GETKey(OsVErsionBAD, Edition)
-    End If
+        If CheckBox1.Checked = True Then
+            WindowsKeys = GETKey(OsVersionBAD, Edition, Manufacturer)
+        Else
+            WindowsKeys = GETKey(OsVersionBAD, Edition)
+        End If
 
-    Label5.Text = WindowsKeys.Count
+        Label5.Text = WindowsKeys.Count
 
-    For Each WindowsK As KeyType In WindowsKeys
+        For Each WindowsK As KeyType In WindowsKeys
 
-      ListBox1.Items.Add(WindowsK.Key)
+            ListBox1.Items.Add(WindowsK.Key)
 
-    Next
-  End Sub
-
-
-  Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    XylonV2.Modules.Initialization() ' good :)
+        Next
+    End Sub
 
 
-    Dim ComputerInfo As XylonV2.Core.Engine.WMI.Win32_ComputerSystem = XylonV2.Core.Engine.WMI.Win32_ComputerSystem.GetComputerSystemInfo
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    If ComputerInfo IsNot Nothing Then
-      Manufacturer = ComputerInfo.Manufacturer
-      PC_Model = ComputerInfo.Model
-      ' Dim PC_Name As String = ComputerInfo.Name ' or ComputerInfo.UserName (full path)
-
-    End If
-
-    'Dim OsVErsion As Core.WindowsDetection.WinDetect = Core.WindowsDetection.GetOSInfo
- 
-    Dim winVersion As String = Microsoft.Win32.Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ProductName", "").ToString()
-
-    Dim compilation As String = productName.Replace("Windows", "").Replace(OsVErsionBAD, "").Replace(" ", "").ToString
-
-    Label3.Text = "Version: " & OsVErsionBAD & " Edition: " & Edition & " Manufacturer: " & Manufacturer & " Model: " & PC_Model
-
-    ListBox2.SelectedIndex = 0 ' select ther firs item
-
-    ListKeys()
-
-  End Sub
+        XylonV2.Modules.Initialization() ' good :)
 
 
-  Private Function TestEvaluationVersion(ByVal ProductName As String, ByVal WinVersion As String, ByVal Edition As String, ByVal Key As String) As String
-    If ProductName.ToLower().Contains("evaluation") Then
-      Dim args As String = "/online /set-edition:Server" & Edition & " /productkey:" & Key & " /accepteula"
-      Dim eval2license As String = RunProcess("dism.exe", args, "", False)
+        Dim ComputerInfo As XylonV2.Core.Engine.WMI.Win32_ComputerSystem = XylonV2.Core.Engine.WMI.Win32_ComputerSystem.GetComputerSystemInfo
 
-      If eval2license = "" Then
-        MsgBox("Evaluation version failed to be converted", "Sorry")
-      End If
-
-      Return eval2license
-    Else
-      Return String.Empty
-    End If
-  End Function
-
-  Private Function GETKey(ByVal OsVersion As Integer, ByVal Edition As String, Optional ByVal PC As String = "") As List(Of KeyType)
-    Dim KeyList As New List(Of KeyType)
-
-    Dim WindowsKeys As List(Of KeyType) = GEtWindowsKeys()
-
-    For Each WindowsK As KeyType In WindowsKeys
-
-      Dim compare As Boolean = (OsVersion = Val(WindowsK.OsVErsion))
-
-      If LCase(Edition) = LCase(WindowsK.OsCompilation) Then
-
-
-        If compare = True Then
-         
-          If PC = "" Then
-
-            KeyList.Add(WindowsK)
-
-          Else
-
-            If PC.Contains(WindowsK.PC, StringComparison.OrdinalIgnoreCase) = True Then ' GEt Windows key By Manufacturer
-
-              KeyList.Add(WindowsK)
-
-            ElseIf WindowsK.PC.ToLower = "universal" Then
-
-              KeyList.Add(WindowsK)
-
-            End If
-
-          End If
-
+        If ComputerInfo IsNot Nothing Then
+            Manufacturer = ComputerInfo.Manufacturer
+            PC_Model = ComputerInfo.Model
+            ' Dim PC_Name As String = ComputerInfo.Name ' or ComputerInfo.UserName (full path)
 
         End If
 
-      End If
+        'Dim OsVErsion As Core.WindowsDetection.WinDetect = Core.WindowsDetection.GetOSInfo
+
+        Dim winVersion As String = Microsoft.Win32.Registry.GetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion", "ProductName", "").ToString()
+
+        Dim compilation As String = productName.Replace("Windows", "").Replace(OsVersionBAD, "").Replace(" ", "").ToString
+
+        Label3.Text = "Version: " & OsVersionBAD & " Edition: " & Edition & " Manufacturer: " & Manufacturer & " Model: " & PC_Model
+
+        ListBox2.SelectedIndex = 0 ' select the first item
+
+        ListKeys()
+
+    End Sub
 
 
-    Next
+    Private Function TestEvaluationVersion(ByVal ProductName As String, ByVal WinVersion As String, ByVal Edition As String, ByVal Key As String) As String
+        If ProductName.ToLower().Contains("evaluation") Then
+            Dim args As String = "/online /set-edition:Server" & Edition & " /productkey:" & Key & " /accepteula"
+            Dim eval2license As String = RunProcess("dism.exe", args, "", False)
 
-
-    Return KeyList
-  End Function
-
-  Public Shared Function RunProcess(ByVal name As String, ByVal args As String, ByVal workdir As String, ByVal silent As Boolean) As String
-    Dim procInfo As ProcessStartInfo = New ProcessStartInfo With {
-        .FileName = name,
-        .WorkingDirectory = System.Environment.GetEnvironmentVariable("SystemRoot") & "\System32",
-        .Arguments = args
-    }
-
-    If workdir <> "" Then
-      procInfo.WorkingDirectory = workdir
-    End If
-
-    If silent Then
-      procInfo.UseShellExecute = False
-      procInfo.CreateNoWindow = True
-      procInfo.WindowStyle = ProcessWindowStyle.Hidden
-      procInfo.RedirectStandardOutput = True
-    End If
-
-    Dim proc As Process = New Process With {
-        .StartInfo = procInfo
-    }
-
-    Try
-      proc.Start()
-    Catch err As Exception
-      MessageBox.Show("RunProcess" & vbLf & err.ToString(), "Exception caught", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
-      Return ""
-    End Try
-
-    Dim output As String = proc.StandardOutput.ReadToEnd().ToLower()
-    proc.WaitForExit()
-    Return output
-  End Function
-
-
-  Public Function GetCurrenVersionInfo(ByVal TargetInfo As String) As String
-    Return RegEdit.GetValueData(Of String)(fullKeyPath:="HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion", valueName:=TargetInfo, registryValueOptions:=Microsoft.Win32.RegistryValueOptions.DoNotExpandEnvironmentNames)
-  End Function
-
-  Public Function GEtWindowsKeys() As List(Of KeyType)
-    Dim NewList As New List(Of KeyType)
-
-    Dim KeysString As String = windows_Keys.ToString
-
-
-    For Each LineStr As String In KeysString.Split("$") ' wait bro
-
-      If Not LineStr = String.Empty Then
-
-        If Not LineStr.StartsWith("#") Then
-
-          Dim KeyStringSeparator As String() = LineStr.Split("|")
-
-          If KeyStringSeparator.Count = 4 Then
-
-            If KeyStringSeparator(0).Contains("#") = False Then
-              Dim KeyTypeEX As New KeyType
-
-              KeyTypeEX.OsVErsion = KeyStringSeparator(0)
-              KeyTypeEX.OsCompilation = KeyStringSeparator(1)
-              KeyTypeEX.PC = KeyStringSeparator(2)
-              KeyTypeEX.Key = KeyStringSeparator(3)
-              NewList.Add(KeyTypeEX)
+            If eval2license = "" Then
+                MsgBox("Evaluation version failed to be converted", "Sorry")
             End If
 
-          End If
+            Return eval2license
+        Else
+            Return String.Empty
+        End If
+    End Function
 
-          'ok
+    Private Function GETKey(ByVal OsVersion As Integer, ByVal Edition As String, Optional ByVal PC As String = "") As List(Of KeyType)
+        Dim KeyList As New List(Of KeyType)
+
+        Dim WindowsKeys As List(Of KeyType) = GEtWindowsKeys()
+
+        For Each WindowsK As KeyType In WindowsKeys
+
+            Dim compare As Boolean = (OsVersion = Val(WindowsK.OsVersion))
+
+            If LCase(Edition) = LCase(WindowsK.OsCompilation) Then
+
+
+                If compare = True Then
+
+                    If PC = "" Then
+
+                        KeyList.Add(WindowsK)
+
+                    Else
+
+                        If PC.Contains(WindowsK.PC, StringComparison.OrdinalIgnoreCase) = True Then ' GEt Windows key By Manufacturer
+
+                            KeyList.Add(WindowsK)
+
+                        ElseIf WindowsK.PC.ToLower = "universal" Then
+
+                            KeyList.Add(WindowsK)
+
+                        End If
+
+                    End If
+
+
+                End If
+
+            End If
+
+
+        Next
+
+
+        Return KeyList
+    End Function
+
+    Public Shared Function RunProcess(ByVal name As String, ByVal args As String, ByVal workdir As String, ByVal silent As Boolean) As String
+        Dim procInfo As ProcessStartInfo = New ProcessStartInfo With {
+            .FileName = name,
+            .WorkingDirectory = System.Environment.GetEnvironmentVariable("SystemRoot") & "\System32",
+            .Arguments = args
+        }
+
+        If workdir <> "" Then
+            procInfo.WorkingDirectory = workdir
         End If
 
-      End If
+        If silent Then
+            procInfo.UseShellExecute = False
+            procInfo.CreateNoWindow = True
+            procInfo.WindowStyle = ProcessWindowStyle.Hidden
+            procInfo.RedirectStandardOutput = True
+        End If
 
-    Next
+        Dim proc As Process = New Process With {
+            .StartInfo = procInfo
+        }
 
-    Return NewList
+        Try
+            proc.Start()
+        Catch err As Exception
+            MessageBox.Show("RunProcess" & vbLf & err.ToString(), "Exception caught", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
+            Return ""
+        End Try
+
+        Dim output As String = proc.StandardOutput.ReadToEnd().ToLower()
+        proc.WaitForExit()
+        Return output
+    End Function
 
 
-  End Function
+    Public Function GetCurrenVersionInfo(ByVal TargetInfo As String) As String
+        Return RegEdit.GetValueData(Of String)(fullKeyPath:="HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion", valueName:=TargetInfo, registryValueOptions:=Microsoft.Win32.RegistryValueOptions.DoNotExpandEnvironmentNames)
+    End Function
 
-  Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
-    Try
-      Dim Selecteditem As String = ListBox1.Items(ListBox1.SelectedIndex)
-      TextBox1.Text = Selecteditem
-      TextBox2.Text = TestEvaluationVersion(productName, OsVErsionBAD, Edition, Selecteditem)
-    Catch ex As Exception
+    Public Function GEtWindowsKeys() As List(Of KeyType)
+        Dim NewList As New List(Of KeyType)
 
-    End Try
-  End Sub
-  Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
-    Try
-      Dim Selecteditem As String = ListBox2.Items(ListBox2.SelectedIndex)
-      TextBox3.Text = Selecteditem
-    Catch ex As Exception
+        Dim KeysString As String = windows_Keys.ToString
 
-    End Try
-  End Sub
+
+        For Each LineStr As String In KeysString.Split("$") ' wait bro
+
+            If Not LineStr = String.Empty Then
+
+                If Not LineStr.StartsWith("#") Then
+
+                    Dim KeyStringSeparator As String() = LineStr.Split("|")
+
+                    If KeyStringSeparator.Count = 4 Then
+
+                        If KeyStringSeparator(0).Contains("#") = False Then
+                            Dim KeyTypeEX As New KeyType
+
+                            KeyTypeEX.OsVersion = KeyStringSeparator(0)
+                            KeyTypeEX.OsCompilation = KeyStringSeparator(1)
+                            KeyTypeEX.PC = KeyStringSeparator(2)
+                            KeyTypeEX.Key = KeyStringSeparator(3)
+                            NewList.Add(KeyTypeEX)
+                        End If
+
+                    End If
+
+                    'ok
+                End If
+
+            End If
+
+        Next
+
+        Return NewList
+
+
+    End Function
+
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+        Try
+            Dim Selecteditem As String = ListBox1.Items(ListBox1.SelectedIndex)
+            TextBox1.Text = Selecteditem
+            TextBox2.Text = TestEvaluationVersion(productName, OsVersionBAD, Edition, Selecteditem)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
+        Try
+            Dim Selecteditem As String = ListBox2.Items(ListBox2.SelectedIndex)
+            TextBox3.Text = Selecteditem
+        Catch ex As Exception
+
+        End Try
+    End Sub
 #Region " Active "
 
 
-  Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-    Activewindows(TextBox1.Text, TextBox3.Text)
-  End Sub
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Activewindows(TextBox1.Text, TextBox3.Text)
+    End Sub
 
-  Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-    Unistallkey()
-  End Sub
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Unistallkey()
+    End Sub
 
-  Private Sub Unistallkey()
+    Private Sub Unistallkey()
 
-    Dim makeVolDbg As String = String.Empty
-    Dim comands As String() = {"slmgr.vbs /upk", "slmgr.vbs /cpky", "slmgr.vbs /rearm", "slmgr.vbs /ato"}
-
-
-    For Each Cmd As String In comands
+        Dim makeVolDbg As String = String.Empty
+        Dim comands As String() = {"slmgr.vbs /upk", "slmgr.vbs /cpky", "slmgr.vbs /rearm", "slmgr.vbs /ato"}
 
 
-      Dim activateDbg As String = String.Empty
-      Dim kmsServerDbg As String = String.Empty
-      Dim makeVol As Process = New Process()
-      Dim startInfo As ProcessStartInfo = New ProcessStartInfo With {
-          .FileName = "cscript.exe",
-          .WorkingDirectory = System.Environment.GetEnvironmentVariable("SystemRoot") & "\System32",
-          .Arguments = "//Nologo " & Cmd,
-          .CreateNoWindow = True,
-          .UseShellExecute = False,
-          .RedirectStandardOutput = True,
-          .WindowStyle = ProcessWindowStyle.Hidden
-      }
-      makeVol.StartInfo = startInfo
+        For Each Cmd As String In comands
 
-      Try
-        makeVol.Start()
-      Catch err As Exception
-        MessageBox.Show(err.ToString(), "Exception caught", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
-      End Try
 
-      makeVolDbg += makeVol.StandardOutput.ReadToEnd() & vbNewLine
-      makeVol.WaitForExit()
+            Dim activateDbg As String = String.Empty
+            Dim kmsServerDbg As String = String.Empty
+            Dim makeVol As Process = New Process()
+            Dim startInfo As ProcessStartInfo = New ProcessStartInfo With {
+                .FileName = "cscript.exe",
+                .WorkingDirectory = System.Environment.GetEnvironmentVariable("SystemRoot") & "\System32",
+                .Arguments = "//Nologo " & Cmd,
+                .CreateNoWindow = True,
+                .UseShellExecute = False,
+                .RedirectStandardOutput = True,
+                .WindowStyle = ProcessWindowStyle.Hidden
+            }
+            makeVol.StartInfo = startInfo
 
-    Next
-    Me.BeginInvoke(Function()
-                    TextBox2.Text = makeVolDbg
-                   End Function)
-  End Sub
+            Try
+                makeVol.Start()
+            Catch err As Exception
+                MessageBox.Show(err.ToString(), "Exception caught", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
+            End Try
 
-  Private Sub Activewindows(ByVal key As String, ByVal Server As String)
-    Dim makeVolDbg As String = String.Empty
-    Dim activateDbg As String = String.Empty
-    Dim kmsServerDbg As String = String.Empty
-    Dim makeVol As Process = New Process()
-    Dim startInfo As ProcessStartInfo = New ProcessStartInfo With {
-        .FileName = "cscript.exe",
-        .WorkingDirectory = System.Environment.GetEnvironmentVariable("SystemRoot") & "\System32",
-        .Arguments = "//Nologo slmgr.vbs /ipk " & key,
-        .CreateNoWindow = True,
-        .UseShellExecute = False,
-        .RedirectStandardOutput = True,
-        .WindowStyle = ProcessWindowStyle.Hidden
-    }
-    makeVol.StartInfo = startInfo
+            makeVolDbg += makeVol.StandardOutput.ReadToEnd() & vbNewLine
+            makeVol.WaitForExit()
 
-    Try
-      makeVol.Start()
-    Catch err As Exception
-      MessageBox.Show(err.ToString(), "Exception caught", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
-    End Try
+        Next
+        Me.BeginInvoke(Function()
+                           TextBox2.Text = makeVolDbg
+                       End Function)
+    End Sub
 
-    makeVolDbg = makeVol.StandardOutput.ReadToEnd()
-    makeVol.WaitForExit()
+    Private Sub Activewindows(ByVal key As String, ByVal Server As String)
+        Dim makeVolDbg As String = String.Empty
+        Dim activateDbg As String = String.Empty
+        Dim kmsServerDbg As String = String.Empty
+        Dim makeVol As Process = New Process()
+        Dim startInfo As ProcessStartInfo = New ProcessStartInfo With {
+            .FileName = "cscript.exe",
+            .WorkingDirectory = System.Environment.GetEnvironmentVariable("SystemRoot") & "\System32",
+            .Arguments = "//Nologo slmgr.vbs /ipk " & key,
+            .CreateNoWindow = True,
+            .UseShellExecute = False,
+            .RedirectStandardOutput = True,
+            .WindowStyle = ProcessWindowStyle.Hidden
+        }
+        makeVol.StartInfo = startInfo
 
-    'KMS
+        Try
+            makeVol.Start()
+        Catch err As Exception
+            MessageBox.Show(err.ToString(), "Exception caught", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
+        End Try
 
-    Me.BeginInvoke(Function()
-                     startInfo.Arguments = "//Nologo slmgr.vbs /skms " & Server
-                   End Function)
-    Dim kmsServer As Process = New Process With {
-        .StartInfo = startInfo
-    }
-    kmsServer.Start()
-    kmsServerDbg = kmsServer.StandardOutput.ReadToEnd()
-    kmsServer.WaitForExit()
-    startInfo.Arguments = "//Nologo slmgr.vbs /ato"
-    Dim activate As Process = New Process With {
-        .StartInfo = startInfo
-    }
-    activate.Start()
-    activateDbg = activate.StandardOutput.ReadToEnd()
-    activate.WaitForExit()
-    Me.BeginInvoke(Function()
-                     Dim debugstr As String = makeVolDbg & vbLf + kmsServerDbg & vbLf + activateDbg
-                     TextBox2.Text = debugstr
-                   End Function)
-  End Sub
+        makeVolDbg = makeVol.StandardOutput.ReadToEnd()
+        makeVol.WaitForExit()
+
+        'KMS
+
+        Me.BeginInvoke(Function()
+                           startInfo.Arguments = "//Nologo slmgr.vbs /skms " & Server
+                       End Function)
+        Dim kmsServer As Process = New Process With {
+            .StartInfo = startInfo
+        }
+        kmsServer.Start()
+        kmsServerDbg = kmsServer.StandardOutput.ReadToEnd()
+        kmsServer.WaitForExit()
+        startInfo.Arguments = "//Nologo slmgr.vbs /ato"
+        Dim activate As Process = New Process With {
+            .StartInfo = startInfo
+        }
+        activate.Start()
+        activateDbg = activate.StandardOutput.ReadToEnd()
+        activate.WaitForExit()
+        Me.BeginInvoke(Function()
+                           Dim debugstr As String = makeVolDbg & vbLf + kmsServerDbg & vbLf + activateDbg
+                           TextBox2.Text = debugstr
+                       End Function)
+    End Sub
 #End Region
 End Class
