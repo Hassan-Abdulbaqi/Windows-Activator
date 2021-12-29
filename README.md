@@ -6,7 +6,7 @@ Active windows - support Version : Vista - 7 - 8.1 - 10
 	 Windows Activator
 </h1>
 <h2 align="center">
-	Discontinued
+	
 	<br>
 </h2>
 
