@@ -26,7 +26,7 @@ Download: <a href="https://github.com/Hassan-Abdulbaqi/Windows-Activator/release
 
 ### For Newbs
 
-> 1. Clone or Download | Open Proyect and build.
+> 1. Clone or Download | Open Project and build.
 
 > 2. Goto: *WindowsActivator-Master\WindowsActivator\bin\Debug* (bin\Debug folder)
 
@@ -101,7 +101,7 @@ To submit bug reports/suggestions and other help, goto: [Issues](https://github.
 ```
 Low Licensed Software : " MIT "
 
-Copyright (c) 2019 By DINK.INK
+Copyright (c) 2019 By Hassan Abdulbaqi
 
 https://github.com/Hassan-Abdulbaqi/Windows-Activator/blob/master/LICENSE
 ```
