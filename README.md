@@ -12,7 +12,7 @@ Active windows - support Version : Vista - 7 - 8.1 - 10
 
 ## information.
 
-This is an anti-malware application built in VB.NET. Active your windows. 
+Windows Activator built in VB.NET. 
 
 Download: <a href="https://github.com/Hassan-Abdulbaqi/Windows-Activator/releases/download/v1/WindowsActivator.zip">WindowsActivator.zip</a>.
 
