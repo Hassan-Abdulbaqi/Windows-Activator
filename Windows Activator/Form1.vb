@@ -1,10 +1,8 @@
-﻿
-Imports XylonV2
+﻿Imports XylonV2
 Imports System.Text.RegularExpressions
 Imports XylonV2.Engine.Reg
 
 Public Class Form1
-
 
     Public Shared windows_Keys As String = <a><![CDATA[
 ##################$
