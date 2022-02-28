@@ -96,6 +96,7 @@ To submit bug reports/suggestions and other help, goto: [Issues](https://github.
 
   ## Special thanks :
 - Destroyer : For XylonV2 API And Helping.  / Discord : Destroyer#8328 
+- Byron : For Grammar Improvment and Code Improvment. / Discord : byron#0072
 
 ## License
 ```
