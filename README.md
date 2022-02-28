@@ -1,5 +1,13 @@
 # Windows-Activator
-Active windows - support Version : Vista - 7 - 8.1 - 10
+Activator Supports the following Windows Versions
+
+- Windows Vista
+
+- Windows 7
+
+- Windows 8 / 8.1
+
+- Windows 10
 <h1 align="center">
 	<br>
 	<img src="https://i.ibb.co/h8LCtH6/Key.png" alt="Strely-Pro Logo" width="100" height="100">
@@ -10,7 +18,7 @@ Active windows - support Version : Vista - 7 - 8.1 - 10
 	
 </h2>
 
-## information.
+## Information
 
 Windows Activator built in VB.NET. 
 
