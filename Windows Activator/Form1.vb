@@ -1,10 +1,8 @@
-﻿
-Imports XylonV2
+﻿Imports XylonV2
 Imports System.Text.RegularExpressions
 Imports XylonV2.Engine.Reg
 
 Public Class Form1
-
 
     Public Shared windows_Keys As String = <a><![CDATA[
 ##################$
@@ -399,7 +397,7 @@ Server7|ServerHomePremium|LaCie|2M74M-6DJHT-Y49MG-22FGH-B6XFP$
             Dim eval2license As String = RunProcess("dism.exe", args, "", False)
 
             If eval2license = "" Then
-                MsgBox("Evaluation version failed to be converted", "Sorry")
+            MsgBox("Evaluation version failed to be converted.", "WindowsActivator")
             End If
 
             Return eval2license
@@ -477,7 +475,7 @@ Server7|ServerHomePremium|LaCie|2M74M-6DJHT-Y49MG-22FGH-B6XFP$
         Try
             proc.Start()
         Catch err As Exception
-            MessageBox.Show("RunProcess" & vbLf & err.ToString(), "Exception caught", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
+            MessageBox.Show("RunProcess" & vbLf & err.ToString(), "Exception: ", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
             Return ""
         End Try
 
@@ -585,7 +583,7 @@ Server7|ServerHomePremium|LaCie|2M74M-6DJHT-Y49MG-22FGH-B6XFP$
             Try
                 makeVol.Start()
             Catch err As Exception
-                MessageBox.Show(err.ToString(), "Exception caught", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
+            MessageBox.Show(err.ToString(), "Exception: ", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
             End Try
 
             makeVolDbg += makeVol.StandardOutput.ReadToEnd() & vbNewLine
@@ -616,7 +614,7 @@ Server7|ServerHomePremium|LaCie|2M74M-6DJHT-Y49MG-22FGH-B6XFP$
         Try
             makeVol.Start()
         Catch err As Exception
-            MessageBox.Show(err.ToString(), "Exception caught", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
+            MessageBox.Show(err.ToString(), "Exception: ", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error)
         End Try
 
         makeVolDbg = makeVol.StandardOutput.ReadToEnd()

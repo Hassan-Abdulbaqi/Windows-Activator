@@ -1,5 +1,5 @@
 # Windows-Activator
-Active windows - support Version : Vista - 7 - 8.1 - 10
+Windows Activator supports Windows Vista, Windows 7, Windows 8 / 8.1, and Windows 10.
 <h1 align="center">
 	<br>
 	<img src="https://i.ibb.co/h8LCtH6/Key.png" alt="Strely-Pro Logo" width="100" height="100">
@@ -10,7 +10,7 @@ Active windows - support Version : Vista - 7 - 8.1 - 10
 	
 </h2>
 
-## information.
+## Information
 
 Windows Activator built in VB.NET. 
 
@@ -24,7 +24,7 @@ Download: <a href="https://github.com/Hassan-Abdulbaqi/Windows-Activator/release
 - XylonV2 (Download [from Nuget](https://www.nuget.org/packages/XylonV2/))
 - Visual Studio (for source view/testing)
 
-### For Newbs
+### For Newbies
 
 > 1. Clone or Download | Open Project and build.
 
@@ -48,31 +48,31 @@ Download: <a href="https://github.com/Hassan-Abdulbaqi/Windows-Activator/release
 The following features have been completed. They may need further improvements.
 
 #### Windows Detection
-[Detect Which Windows Version you Have And Give you The Right Code for it]
+[Auto-detect your current Windows version and get the right code for it.]
 
 - [+] getting version / edition / and other .....
 
 #### System Info
 [Using XylonV2 API, Get system manufacturer and other misc]
 
-- [+] get full system info.
+- [+] Get full system info.
 
 #### Full Windows Activation Info
 
-- [+] Getting Full windows keys based on Manufacturer, version and windows edition-
+- [+] Getting full Windows keys based on Manufacturer, version and windows edition-
 
 #### Multi-Servers
 
 - [+] Using multiples servers for activating your windows.
 
 #### Error Reporting & Message
-The Error Messages and Exceptions are written in a Log in real time.
+The Error Messages and Exceptions are written in a log in real time.
 
 ## Contribute
 
 ### Code Contributions
 
-#### Direct contributions
+#### Direct Contributions
 
 > Fork the repository
 
